@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  position: relative;
+  font-family: "Roboto",sans-serif;
+  background: #FFF5D7;
+}
+
+ul{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+  color:inherit;
+}
+
+.hidden{
+  display: none
+}
+
+/*--------------------------NAVIGATION BAR--------------------------*/
+nav{
+  display: flex;
+  padding: 20px 20%;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+nav ul{
+  display: flex;
+}
+
+nav ul li{
+  margin-right: 2rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/*--------------------------MAIN--------------------------*/
+main{
+  padding: 50px 20%;
+}
+
+#newBookButton{
+  display: flex;
+  align-items: center;
+  gap:10px;
+  position: fixed;
+  right:80px;
+  bottom:80px;
+  padding: 10px 20px;
+  border: 0;
+  background: #5f5bec;
+  color:white;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#newBookButton img{
+  width: 30px;
+  height: 30px;
+}
+
+/*--------------------------HERO SECTION--------------------------*/
+.hero__section{
+  display: grid;
+  grid-template-columns: minmax(400px,700px) 400px;
+  margin-bottom: 5rem;
+}
+
+.hero__section .hero__title h2{
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.hero__section .hero__title img{
+  width: 30px;
+  height: 30px;
+  transition: 0.25s;
+}
+
+.hero__section .hero__title a:hover img{
+  transform: rotate(45deg);
+}
+
+.hero__section .hero__title a{
+  display: inline-flex;
+  font-weight: 600;
+  align-items: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 3px;
+}
+
+.hero__subtext p{
+  line-height: 25px;
+}
+
+/*--------------------------POPULAR READS SECTION--------------------------*/
+.popular__books{
+  padding: 10px 20%;
+  margin-bottom: 3rem;
+}
+
+.popular__books h2{
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.popular__books .books__container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap:2rem;
+  margin-bottom: 3rem;
+}
+
+.popular__books .book__container{
+  flex: 0 0 auto;
+  height: 300px;
+  width: 200px;
+  box-shadow: 6px 6px 8px rgba(0,0,0,0.4);
+  cursor: pointer;
+  transition: 0.25s;
+  padding: 5px;
+}
+
+.popular__books a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.popular__books a img{
+  width: 30px;
+  height: 30px;
+  transition: 0.25s;
+}
+
+.popular__books a:hover img{
+  transform: rotate(45deg);
+}
+
+.popular__books .book__container img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.popular__books .book__container:hover{
+  transform: rotate(3deg);
+}
+
+/*--------------------------STORED BOOK UI--------------------------*/
+.your__collection{
+  margin-bottom: 5rem;
+}
+
+.your__collection h2{
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.your__collection .collection__container{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap:1rem;
+}
+
+.your__collection .book__container{
+  box-shadow: 6px 6px 8px rgba(0,0,0,0.4);
+  width: 200px;
+  height: 280px;
+  padding: 2rem;
+  position: relative;
+  /* background-color: rgb(239, 235, 235); */
+  background-image:url(assets/images/book-cover.jpg);
+  cursor: pointer;
+  text-align: center;
+  background-position: center;
+}
+  
+
+.book__container #title{
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.book__container #author{
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-bottom: 0.4rem;
+}
+
+.book__container #pages{
+  position: absolute;
+  bottom:0px;
+  left:0px;
+  background:limegreen;
+  padding: 3px 10px;
+  color:white;
+  font-weight:700;
+}
+
+.book__container #isRead{
+  position: absolute;
+  top:50%;
+  left:0;
+  width: 100%;
+  background: #a0d935;
+  color:white;
+  padding: 4px 0;
+  font-weight: 600;
+}
+
+/*--------------------------ADD BOOK MODAL--------------------------*/
+
+#modal{
+  position: fixed;
+  top:0px;
+  left:0px;
+  height: 100%;
+  width: 100%;
+}
+
+.modalOverlay{
+  position: absolute;
+  top:0;
+  height: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+#modalContent{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  padding: 2rem 3rem;
+  width: 500px;
+  background: white;
+  border-radius: 8px;
+}
+
+#closeModal{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  padding: 0.5rem;
+  border:0;
+  font-size: 1.2rem;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+}
+
+form h2{
+  font-size: 1rem;
+}
+
+form span{
+  font-weight: 500;
+  font-size: 0.8rem;
+  color:#898989;
+  margin-bottom: 1.5rem;
+}
+
+form > div{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+form > div > label{
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;                   
+}
+
+form > div > input{
+  padding: 8px 10px;
+  border: 0.1px solid rgba(137, 137, 137, 0.6);
+  border-radius: 3px;
+}
+
+form > div > input:focus{
+  outline:none;
+}
+
+form > .isRead {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+form > .isRead > label{
+  margin-right: 1rem;
+} 
+
+form > .isRead > input[type="checkbox"]{
+  cursor: pointer;
+}
+
+form #addBookButton{
+  padding: 10px;
+  background: #155E95;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color:white;
+}
+
+
+
+
+
